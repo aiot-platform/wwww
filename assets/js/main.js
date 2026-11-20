@@ -57,10 +57,13 @@
     ],
 
     contact: {
-      phone: '400-000-0000',
-      email: 'hello@iotmaker.example.com',
-      address: '上海市浦东新区 · 物联智造产业园'
-    }
+      phone: '陈先生 13083494398 / 朱先生 18355189103',
+      email: '962155660@qq.com',
+      address: ''
+    },
+
+    // 页脚备案信息：填上后自动出现在版权行，留空则不渲染
+    icp: '皖ICP备2026036833号-1'
   };
 
   /* ---------------- 工具 ---------------- */
@@ -164,7 +167,7 @@
       '<div class="footer__contact">' +
       '<div><span>电话</span><br>' + SITE.contact.phone + '</div>' +
       '<div><span>邮箱</span><br>' + SITE.contact.email + '</div>' +
-      '<div><span>地址</span><br>' + SITE.contact.address + '</div>' +
+      (SITE.contact.address ? '<div><span>地址</span><br>' + SITE.contact.address + '</div>' : '') +
       '</div>';
     grid.appendChild(brandCol);
 
@@ -189,8 +192,10 @@
     var bottom = el('div', 'footer__bottom');
     var year = new Date().getFullYear();
     bottom.innerHTML =
-      '<div>© ' + year + ' ' + SITE.brand + ' · 保留所有权利</div>' +
-      '<div><a href="/contact/">预约方案演示</a> · <a href="/resources/">资源下载</a> · <a href="#">隐私政策</a></div>';
+      '<div>© ' + year + ' ' + SITE.brand + ' · 保留所有权利' +
+      (SITE.icp ? ' · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">' + SITE.icp + '</a>' : '') +
+      '</div>' +
+      '<div><a href="/contact/">预约方案演示</a> · <a href="/resources/">资源下载</a> · <a href="/privacy/">隐私政策</a></div>';
     container.appendChild(bottom);
 
     footer.appendChild(container);
