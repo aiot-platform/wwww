@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PCB 研发与制造 · 物联智造</title>
+<meta name="description" content="物联智造以 PCB 研发与生产为核心能力：原理图与多层板 Layout 设计、DFM 评审、制板工艺、SMT 贴装与焊接、AOI / ICT / FCT 测试、小批验证与批量生产，全流程批次可追溯。">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<div data-site-header></div>
+
+<main>
+
+<!-- ========== 页头 ========== -->
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="/">首页</a><i>/</i><span>硬件与制造</span></nav>
+    <span class="eyebrow">PCB 研发 · 制板 · SMT · 测试</span>
+    <h1 class="h1 page-hero__title">PCB 研发与制造：从设计到量产的完整链路</h1>
+    <p class="lead page-hero__lead">硬件与制造能力的核心是 PCB。从原理图、多层板 Layout 到制板、SMT 贴装、测试与批量生产，用一条自主可控的链路把控周期、工艺与质量，让样机快速到手、量产批次可追溯。</p>
+    <div class="page-hero__actions">
+      <a class="btn btn--primary btn--lg" href="/contact/">预约方案演示<span class="arrow">→</span></a>
+      <a class="btn btn--ghost btn--lg" href="/contact/#form">提交 PCB 需求</a>
+    </div>
+
+    <figure class="figure figure--lg reveal d1" style="margin-top:46px;aspect-ratio:21/9">
+      <img src="/assets/img/pcb-board.jpg" alt="多层印制电路板特写：表面贴装器件、镀金焊盘、铜箔走线与过孔" loading="lazy">
+      <figcaption class="figure__caption">PCB 研发与制造<span>原理图 · 多层板 Layout · 制板 · SMT 贴装 · 测试与量产</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ========== 屏一：PCB 设计能力 ========== -->
+<section class="section" id="design">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">PCB 设计能力</span>
+      <h2 class="h2">先把原理图做对，再把板子画好</h2>
+      <p class="lead">设计阶段就引入可制造性与量产视角，减少打样反复，把风险暴露在图纸而不是产线上。</p>
+    </div>
+
+    <div class="grid grid--3">
+      <article class="card reveal">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h10l6 6-6 6H4z"/>
+            <circle cx="8" cy="12" r="1.6"/>
+          </svg>
+        </div>
+        <h3 class="card__title">原理图设计</h3>
+        <p class="card__text">按功能模块拆分电路，完成电源、通信、采集与人机接口设计，输出规范的设计文档与网络约束。</p>
+      </article>
+
+      <article class="card reveal d1">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="2"/>
+            <path d="M8 4v16M16 4v16M4 8h16M4 16h16"/>
+          </svg>
+        </div>
+        <h3 class="card__title">多层板 Layout</h3>
+        <p class="card__text">支持多层板布局布线、层叠设计、铺铜与过孔优化，兼顾信号完整性与装配工艺要求。</p>
+      </article>
+
+      <article class="card reveal d2">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 3 8l9 5 9-5-9-5Z"/>
+            <path d="m3 13 9 5 9-5"/>
+          </svg>
+        </div>
+        <h3 class="card__title">可制造性（DFM）评审</h3>
+        <p class="card__text">在投板前完成线宽间距、孔径、阻焊与拼板评审，规避工艺风险，降低打样失败率。</p>
+      </article>
+    </div>
+
+    <div class="split" style="margin-top:44px">
+      <div class="reveal">
+        <h3 class="h3" style="margin-bottom:20px">面向量产的工程细节</h3>
+        <ul class="checklist">
+          <li><b>高速 / 射频设计</b> — 差分走线、阻抗匹配与地平面处理，保障通信与采集稳定性。</li>
+          <li><b>电源完整性</b> — 电源分区、去耦与滤波设计，降低噪声与纹波。</li>
+          <li><b>BOM 与器件选型</b> — 通用优先、供货可控，标注替代料与关键器件批次。</li>
+          <li><b>设计输出规范</b> — 交付 Gerber、钢网、贴片坐标与装配图，直接对接产线。</li>
+        </ul>
+      </div>
+      <div class="panel reveal d1">
+        <h4 class="h4" style="margin-bottom:18px">设计阶段的关键产出</h4>
+        <ul class="checklist">
+          <li>原理图与网络约束文件</li>
+          <li>PCB Layout 与层叠说明</li>
+          <li>DFM 评审报告</li>
+          <li>BOM 清单与选型说明</li>
+          <li>Gerber / 钢网 / 贴片坐标</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 屏二：制板工艺能力 ========== -->
+<section class="section section--alt" id="fabrication">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">制板与打样</span>
+      <h2 class="h2">制板工艺透明，周期按项目评估</h2>
+      <p class="lead">常规需求按标准工艺快速投产，快板可压缩到最短周期；具体以图纸评审结果为准。</p>
+    </div>
+
+    <div class="kpis reveal d1">
+      <div class="kpi"><div class="kpi__label">可用层数</div><div class="kpi__value">1 – 8 层</div><div class="kpi__hint">多层板按需叠层</div></div>
+      <div class="kpi"><div class="kpi__label">最小线宽 / 间距</div><div class="kpi__value">3 / 3 mil</div><div class="kpi__hint">高密度布线按项目评估</div></div>
+      <div class="kpi"><div class="kpi__label">板材类型</div><div class="kpi__value">FR-4 / 高 Tg</div><div class="kpi__hint">高频板材可选</div></div>
+      <div class="kpi"><div class="kpi__label">表面处理</div><div class="kpi__value">沉金 / 喷锡 / OSP</div><div class="kpi__hint">按焊接与存储需求选择</div></div>
+      <div class="kpi"><div class="kpi__label">阻抗控制</div><div class="kpi__value">支持</div><div class="kpi__hint">差分 / 单端阻抗可标定</div></div>
+      <div class="kpi"><div class="kpi__label">快板周期</div><div class="kpi__value">24 h</div><div class="kpi__hint">加急项目，需提前沟通</div></div>
+      <div class="kpi"><div class="kpi__label">常规打样</div><div class="kpi__value">3 – 5 天</div><div class="kpi__hint">具体按项目评估</div></div>
+      <div class="kpi"><div class="kpi__label">打样与量产</div><div class="kpi__value">同标准</div><div class="kpi__hint">避免打样通过量产失败</div></div>
+    </div>
+
+    <div class="trustbar reveal d2" style="margin-top:40px">
+      <div class="trustbar__row">
+        <span class="trustbar__item">图纸评审后投板</span>
+        <span class="trustbar__item">工艺参数可查</span>
+        <span class="trustbar__item">快板 / 常规双通道</span>
+        <span class="trustbar__item">打样与量产同标准</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 屏三：SMT 贴装与测试 ========== -->
+<section class="section" id="smt">
+  <div class="container">
+    <div class="split" style="margin-bottom:52px">
+      <div class="reveal">
+        <span class="eyebrow">SMT 贴装与测试</span>
+        <h2 class="h2" style="margin-bottom:20px">产线可控，测试可追溯</h2>
+        <p class="lead" style="margin-bottom:26px">光板制完只是开始。SMT 产线配合多道测试工序，把每一块板的质量数据留在系统里，让批次一致性看得见。</p>
+        <ul class="checklist">
+          <li><b>锡膏印刷与贴片</b> — 贴片机自动上料、多路供料飞达，贴装精度与抛料率可监控。</li>
+          <li><b>回流焊与波峰焊</b> — 炉温曲线按板型标定并留档，兼顾无铅工艺可靠性。</li>
+          <li><b>X-Ray 与 AOI</b> — 针对 BGA / QFN 等隐藏焊点做 X-Ray 检查，表面缺陷走 AOI 光学检测。</li>
+          <li><b>ICT / FCT 与老化</b> — 在线电测与功能测试逐板执行，关键批次追加老化考核。</li>
+        </ul>
+      </div>
+      <div class="reveal d1">
+        <figure class="figure" style="aspect-ratio:4/3">
+          <img src="/assets/img/pcb-smt.jpg" alt="SMT 表面贴装产线：贴片机、回流焊炉与 AOI 光学检测设备" loading="lazy">
+          <figcaption class="figure__caption">SMT 贴装与检测产线<span>贴片 · 回流焊 · AOI / X-Ray · 在线电测</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="grid grid--3">
+      <article class="card reveal">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8h10l6 6"/>
+            <path d="M4 16h6"/>
+            <circle cx="6" cy="8" r="2"/>
+          </svg>
+        </div>
+        <h3 class="card__title">锡膏印刷与贴片</h3>
+        <p class="card__text">钢网印刷配合贴片机自动上料，贴装精度、抛料率与首件确认全程留档。</p>
+      </article>
+
+      <article class="card reveal d1">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 17h18"/>
+            <path d="M6 17V9M12 17V5M18 17v-6"/>
+          </svg>
+        </div>
+        <h3 class="card__title">回流焊与波峰焊</h3>
+        <p class="card__text">炉温曲线按板型标定与留档，无铅工艺稳定，插件工序走波峰焊或选择性焊接。</p>
+      </article>
+
+      <article class="card reveal d2">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="6"/>
+            <path d="m15.5 15.5 4 4"/>
+          </svg>
+        </div>
+        <h3 class="card__title">AOI 光学检测</h3>
+        <p class="card__text">贴装后自动光学检测缺件、偏移、假焊与异物，判定结果与板序一对一绑定。</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="5" width="16" height="14" rx="2"/>
+            <path d="M8 12h8M12 8v8"/>
+          </svg>
+        </div>
+        <h3 class="card__title">X-Ray 焊点检查</h3>
+        <p class="card__text">针对 BGA / QFN / 通孔填充等隐藏焊点做 X-Ray 检查，控制虚焊与空洞风险。</p>
+      </article>
+
+      <article class="card reveal d1">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="8"/>
+            <path d="m8.5 12 2.4 2.4L15.5 10"/>
+          </svg>
+        </div>
+        <h3 class="card__title">ICT / FCT 测试</h3>
+        <p class="card__text">在线电测核查元件与线路，功能测试验证整板行为，逐板记录测试结果。</p>
+      </article>
+
+      <article class="card reveal d2">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v6M12 15v6M3 12h6M15 12h6"/>
+            <circle cx="12" cy="12" r="2.4"/>
+          </svg>
+        </div>
+        <h3 class="card__title">老化与可靠性</h3>
+        <p class="card__text">关键批次追加高温 / 常温通电老化，暴露早期失效，验证长期运行稳定性。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 屏四：小批验证 ========== -->
+<section class="section section--alt" id="pilot">
+  <div class="container">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow">小批验证</span>
+        <h2 class="h2" style="margin-bottom:20px">先验证，再放量</h2>
+        <p class="lead" style="margin-bottom:26px">在小批量阶段把功能、稳定性与现场适配问题一次暴露，避免把风险带到量产。</p>
+        <ul class="checklist">
+          <li><b>功能测试</b> — 逐板验证供电、通信、采集与接口功能，确认设计指标达成。</li>
+          <li><b>老化测试</b> — 高温 / 常温通电老化，暴露早期批次与器件隐患。</li>
+          <li><b>EMC 预测试</b> — 提前做电磁兼容预测试，降低整改与认证风险。</li>
+          <li><b>现场适配验证</b> — 在真实场景联调组网、安装与联动，确认可落地。</li>
+        </ul>
+      </div>
+      <div class="panel reveal d1">
+        <h4 class="h4" style="margin-bottom:18px">小批验证通过标准</h4>
+        <div class="kpis">
+          <div class="kpi"><div class="kpi__label">功能验证</div><div class="kpi__value">全项通过</div><div class="kpi__hint">功能测试用例覆盖</div></div>
+          <div class="kpi"><div class="kpi__label">老化考核</div><div class="kpi__value">无异常</div><div class="kpi__hint">连续通电稳定运行</div></div>
+          <div class="kpi"><div class="kpi__label">EMC 预测试</div><div class="kpi__value">达标</div><div class="kpi__hint">关键项提前通过</div></div>
+          <div class="kpi"><div class="kpi__label">现场适配</div><div class="kpi__value">可落地</div><div class="kpi__hint">真实场景联调确认</div></div>
+        </div>
+        <a class="btn btn--primary" style="margin-top:22px" href="/contact/#form">提交小批验证需求<span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 屏五：批量生产与产能 ========== -->
+<section class="section" id="production">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">批量生产</span>
+      <h2 class="h2">批次可追溯，产能可承接</h2>
+      <p class="lead">器件批次、工艺参数与测试数据关联留档，异常可快速定位到具体生产批次。</p>
+    </div>
+
+    <div class="stats reveal d1">
+      <div class="stat">
+        <div class="stat__num"><span data-count="99.2" data-decimals="1">0</span><small>%</small></div>
+        <div class="stat__label">量产测试通过率</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num"><span data-count="50" data-decimals="0">0</span><small> 万</small></div>
+        <div class="stat__label">年产能（台 / 件）</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num"><span data-count="1200" data-decimals="0">0</span><small>+</small></div>
+        <div class="stat__label">累计交付批次</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num"><span data-count="100" data-decimals="0">0</span><small>%</small></div>
+        <div class="stat__label">批次可追溯覆盖</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 屏六：质量体系 ========== -->
+<section class="section section--alt" id="quality">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">质量体系</span>
+      <h2 class="h2">从来料到出货，四道关口把关</h2>
+      <p class="lead">把质量控制拆成可执行的检查动作，贯穿来料、过程与出货全环节。</p>
+    </div>
+
+    <div class="grid grid--4">
+      <article class="card reveal">
+        <div class="card__index">01</div>
+        <h3 class="card__title">ISO 质量体系</h3>
+        <p class="card__text">按 ISO 体系建立流程与记录规范，质量动作可查、可审计。</p>
+      </article>
+      <article class="card reveal d1">
+        <div class="card__index">02</div>
+        <h3 class="card__title">来料检验</h3>
+        <p class="card__text">关键器件抽检与规格比对，从源头控制批次一致性。</p>
+      </article>
+      <article class="card reveal d2">
+        <div class="card__index">03</div>
+        <h3 class="card__title">过程控制</h3>
+        <p class="card__text">关键工序设卡与参数监控，异常即时拦截与处理。</p>
+      </article>
+      <article class="card reveal d3">
+        <div class="card__index">04</div>
+        <h3 class="card__title">出货抽检</h3>
+        <p class="card__text">按抽样标准出检并留存记录，放行前确认外观与功能。</p>
+      </article>
+    </div>
+
+    <div class="trustbar reveal d3" style="margin-top:44px">
+      <div class="trustbar__row">
+        <span class="trustbar__item">ISO 质量体系认证</span>
+        <span class="trustbar__item">自有 SMT 产线能力</span>
+        <span class="trustbar__item">全流程质量记录</span>
+        <span class="trustbar__item">批次异常可追溯</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 屏七：项目流程 ========== -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">项目流程</span>
+      <h2 class="h2">PCB 视角的六步交付流程</h2>
+      <p class="lead">每个节点都有明确产出与验收标准，先验证再放量，风险前置暴露。</p>
+    </div>
+
+    <div class="timeline reveal d1" style="max-width:820px;margin:0 auto">
+      <div class="timeline__item"><div class="timeline__title">01 · 需求评估</div><div class="timeline__text">明确功能、接口、环境与量产规模，输出需求确认单与工艺要求。</div></div>
+      <div class="timeline__item"><div class="timeline__title">02 · 原理图与选型</div><div class="timeline__text">完成原理图设计、器件选型与 BOM 方案，确定关键器件供应策略。</div></div>
+      <div class="timeline__item"><div class="timeline__title">03 · PCB Layout 与 DFM</div><div class="timeline__text">完成多层板布局布线、层叠与阻抗设计，DFM 评审通过后投板。</div></div>
+      <div class="timeline__item"><div class="timeline__title">04 · 打样与制板</div><div class="timeline__text">快板 / 常规双通道制板，配套钢网与贴片程序，快速拿到可验证样机。</div></div>
+      <div class="timeline__item"><div class="timeline__title">05 · SMT 与小批验证</div><div class="timeline__text">贴装、焊接、AOI / X-Ray 与功能测试，配合老化与 EMC 预测试确认可放量。</div></div>
+      <div class="timeline__item"><div class="timeline__title">06 · 批量生产与出货</div><div class="timeline__text">按批次量产、出货抽检放行，交付批次数据与后续维护、升级支持。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 底部 CTA ========== -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div>
+        <h2 class="h3">把 PCB 项目交给一支懂量产的团队</h2>
+        <p>从原理图设计到制板、SMT 贴装、测试与批量生产，一次沟通即可对齐工艺、周期与质量要求。</p>
+      </div>
+      <div class="cta-band__actions">
+        <a class="btn btn--primary btn--lg" href="/contact/">预约方案演示<span class="arrow">→</span></a>
+        <a class="btn btn--ghost btn--lg" href="/contact/#form">提交项目需求</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div data-site-footer></div>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

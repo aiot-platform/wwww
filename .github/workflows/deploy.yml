@@ -1,0 +1,86 @@
+name: Deploy www site
+
+# 纯静态站点，无构建步骤：push 到 main 后把 www 目录下的文件同步到服务器的 /opt/www。
+# 需要的 Actions secrets：DEPLOY_HOST / DEPLOY_USER / DEPLOY_SSH_KEY，可选 DEPLOY_PORT（默认 22）。
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-www
+  cancel-in-progress: false
+
+env:
+  DEPLOY_DIR: /opt/www
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 校验部署密钥是否齐全
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          for name in DEPLOY_HOST DEPLOY_USER DEPLOY_SSH_KEY; do
+            if [ -z "${!name}" ]; then
+              echo "::error::缺少 Actions secret: $name"
+              exit 1
+            fi
+          done
+
+      - uses: actions/checkout@v4
+
+      - name: 配置 SSH
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
+        run: |
+          set -euo pipefail
+          umask 077
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -p "${DEPLOY_PORT:-22}" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: 打包站点文件
+        run: tar -czf site.tar.gz --exclude-vcs --exclude=./.github .
+
+      - name: 上传到服务器
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
+        run: |
+          set -euo pipefail
+          scp -i ~/.ssh/id_deploy -P "${DEPLOY_PORT:-22}" -o StrictHostKeyChecking=accept-new \
+            site.tar.gz "$DEPLOY_USER@$DEPLOY_HOST:/tmp/site.tar.gz"
+
+      - name: 在服务器上发布
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
+        run: |
+          set -euo pipefail
+          ssh -i ~/.ssh/id_deploy -p "${DEPLOY_PORT:-22}" -o StrictHostKeyChecking=accept-new \
+            "$DEPLOY_USER@$DEPLOY_HOST" "
+              set -e
+              mkdir -p '${DEPLOY_DIR}'
+              find '${DEPLOY_DIR}' -mindepth 1 -delete
+              tar -xzf /tmp/site.tar.gz -C '${DEPLOY_DIR}'
+              rm -f /tmp/site.tar.gz
+              chmod -R a+rX '${DEPLOY_DIR}'
+              echo '已发布文件数：' \$(find '${DEPLOY_DIR}' -type f | wc -l)
+              test -f '${DEPLOY_DIR}/index.html'
+              if command -v nginx >/dev/null 2>&1; then
+                nginx -t && nginx -s reload || echo '[WARN] nginx 重载失败，请检查配置'
+              fi
+            "

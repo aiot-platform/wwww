@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>视觉 AI 质检 · 物联智造</title>
+<meta name="description" content="物联智造视觉 AI 质检方案：从样本采集、标注训练到边缘推理与检测 + 剔除联动，形成产线质检闭环。支持边缘盒子 / 工控机本地部署与远程运维，检测准确率 ≥99%、漏检率 <0.5%。">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<div data-site-header></div>
+
+<main>
+
+<!-- ========== 页头 ========== -->
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="/">首页</a><i>/</i><span>视觉 AI 质检</span></nav>
+    <span class="eyebrow">视觉 AI 质检</span>
+    <h1 class="h1 page-hero__title">视觉 AI 质检：检测 + 剔除，形成产线闭环</h1>
+    <p class="lead page-hero__lead">不是只交付一个算法，而是把样本、训练、下发、推理、剔除与数据回流串成一条可运营的闭环链路，让质检在产线上真正跑起来。</p>
+    <div class="page-hero__actions">
+      <a class="btn btn--primary btn--lg" href="/contact/">预约方案演示<span class="arrow">→</span></a>
+      <a class="btn btn--ghost btn--lg" href="/contact/#form">提交样品 / 场景</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 屏一：产线检测机构 ========== -->
+<section class="section" id="mechanism">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">产线检测机构</span>
+      <h2 class="h2">检测要落地，先有能装相机的机构</h2>
+      <p class="lead">算法负责判定，真正把 NG 拦下来靠的是机构。我们按工件形态与产线节拍选配检测机构，让判定与剔除在同一条线上完成。</p>
+    </div>
+
+    <div class="figures reveal d1">
+      <figure class="figure">
+        <img src="/assets/img/ai-line.jpg" alt="流水线视觉检测机构：传送带上的工件经过工业相机与条形光源，末端由气动机构剔除不良品" loading="lazy">
+        <figcaption class="figure__caption">流水线检测机构<span>传送带 + 工业相机 + 条形光源 + 气动剔除，适合连续通过式检测</span></figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="/assets/img/ai-turntable.jpg" alt="转盘式视觉检测机构：多工位旋转转盘配合多台工业相机进行多角度拍摄" loading="lazy">
+        <figcaption class="figure__caption">转盘检测机构<span>多工位旋转 + 多相机多角度，适合小件全表面与多面检测</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="grid grid--2" style="margin-top:34px">
+      <article class="card reveal">
+        <h3 class="card__title">流水线机构</h3>
+        <ul class="card__list">
+          <li>传送带连续通过，节拍跟随产线速度</li>
+          <li>线阵 / 面阵相机配条形光源，适配大件与长幅面</li>
+          <li>末端气缸或气动喷嘴剔除，NG 落入不良品箱</li>
+        </ul>
+      </article>
+      <article class="card reveal d1">
+        <h3 class="card__title">转盘机构</h3>
+        <ul class="card__list">
+          <li>分度转盘多工位旋转，上料与检测并行</li>
+          <li>多相机多角度配环形光源，覆盖工件全表面</li>
+          <li>适合小件、精密件的多面与外观检测</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 屏二：七步闭环流程 ========== -->
+<section class="section section--alt" id="flow">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">质检闭环</span>
+      <h2 class="h2">七步流程，从样本到产线剔除</h2>
+      <p class="lead">每一步都有明确产出与判定标准，NG 样本持续回流，模型在实际产线上越用越准。</p>
+    </div>
+
+    <div class="flow flow--row reveal d1">
+      <div class="flow__step"><span class="flow__num">01</span><div class="flow__title">样本采集</div><div class="flow__text">在产线真实光照与工位下采图，覆盖各类缺陷与正常样本</div></div>
+      <div class="flow__step"><span class="flow__num">02</span><div class="flow__title">标注训练</div><div class="flow__text">按统一标注规范打标，用对齐的样本集训练检测模型</div></div>
+      <div class="flow__step"><span class="flow__num">03</span><div class="flow__title">模型评估</div><div class="flow__text">用独立验证集核算准确率、漏检率与过杀率，达标才放行</div></div>
+      <div class="flow__step"><span class="flow__num">04</span><div class="flow__title">模型下发</div><div class="flow__text">版本化管理模型，按工位灰度下发到边缘设备</div></div>
+      <div class="flow__step"><span class="flow__num">05</span><div class="flow__title">边缘推理</div><div class="flow__text">模型在边缘盒子 / 工控机本地推理，图像不出厂</div></div>
+      <div class="flow__step"><span class="flow__num">06</span><div class="flow__title">检测 + 剔除</div><div class="flow__text">判定结果直接驱动剔除机构动作，同步记录判定结果</div></div>
+      <div class="flow__step"><span class="flow__num">07</span><div class="flow__title">数据回流</div><div class="flow__text">NG 与边界样本回流入库，用于下一轮迭代再训练</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 屏二：四项关键能力 ========== -->
+<section class="section" id="capability">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">关键能力</span>
+      <h2 class="h2">四项能力，撑起产线质检闭环</h2>
+      <p class="lead">从判定到动作、从训练到下发的完整能力，缺一环闭环就断。</p>
+    </div>
+
+    <div class="grid grid--2">
+      <article class="card card--accent reveal">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m14 4 6 6-9 9H5v-6z"/>
+            <path d="m12 6 6 6"/>
+          </svg>
+        </div>
+        <h3 class="card__title">检测 + 剔除联动</h3>
+        <p class="card__text">视觉判定结果通过 I/O 或现场总线直接驱动剔除机构，判定与动作在同一节拍内完成，减少人工复检与漏放风险。</p>
+      </article>
+
+      <article class="card card--accent reveal d1">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 3 8l9 5 9-5-9-5Z"/>
+            <path d="m3 13 9 5 9-5"/>
+          </svg>
+        </div>
+        <h3 class="card__title">AI 训练与模型管理</h3>
+        <p class="card__text">样本、标注、训练与评估全过程可追溯，模型按版本归集，切换与回滚有据可依。</p>
+      </article>
+
+      <article class="card card--accent reveal d2">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v12M12 15l-4-4M12 15l4-4"/>
+            <path d="M4 17v2h16v-2"/>
+          </svg>
+        </div>
+        <h3 class="card__title">模型下发到边缘盒子与工控机</h3>
+        <p class="card__text">训练好的模型远程下发到边缘盒子或工控机，支持多工位统一管理与灰度更新，不用到现场逐台升级。</p>
+      </article>
+
+      <article class="card card--accent reveal d3">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4Z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <h3 class="card__title">本地边缘部署与远程运维</h3>
+        <p class="card__text">推理在本地完成，图像数据不出厂；设备状态、推理日志与模型版本远程可见，异常及时响应。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 屏三：关键指标 ========== -->
+<section class="section section--alt" id="metrics">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">关键指标</span>
+      <h2 class="h2">可量化的质检表现</h2>
+      <p class="lead">指标按缺陷类型与产线节拍标定，先验证数据达标，再上产线放量。</p>
+    </div>
+
+    <div class="stats reveal d1">
+      <div class="stat">
+        <div class="stat__num">≥<span data-count="99" data-decimals="0">0</span><small>%</small></div>
+        <div class="stat__label">检测准确率</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">&lt;<span data-count="0.5" data-decimals="1">0</span><small>%</small></div>
+        <div class="stat__label">漏检率</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">&lt;<span data-count="2" data-decimals="0">0</span><small>%</small></div>
+        <div class="stat__label">过杀率</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">按产线</div>
+        <div class="stat__label">检测节拍（按产线标定）</div>
+      </div>
+    </div>
+
+    <div class="quote reveal d2" style="margin-top:36px">指标不是写在 PPT 里的标签，而是在你产线的真实光照、节拍与缺陷分布下测出来的结果。</div>
+  </div>
+</section>
+
+<!-- ========== 屏四：边缘部署形态 ========== -->
+<section class="section" id="edge">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">边缘部署形态</span>
+      <h2 class="h2">按算力与场景选部署形态</h2>
+      <p class="lead">从低功耗产线到高节拍多相机场景，用不同的边缘形态匹配算力需求。</p>
+    </div>
+
+    <div class="grid grid--3">
+      <article class="card reveal">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="7" width="16" height="10" rx="2"/>
+            <path d="M8 11h2M8 13h5"/>
+          </svg>
+        </div>
+        <h3 class="card__title">边缘盒子</h3>
+        <p class="card__text">低功耗、免风扇，适合单相机或少相机工位，部署在机柜或产线旁即可运行。</p>
+        <div class="case-card__metrics" style="margin-top:4px"><span class="tag">低功耗</span><span class="tag">单 / 少相机</span></div>
+      </article>
+
+      <article class="card reveal d1">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="12" rx="2"/>
+            <path d="M9 21h6M12 17v4"/>
+          </svg>
+        </div>
+        <h3 class="card__title">工控机</h3>
+        <p class="card__text">稳定可靠的工业级主机，CPU 推理满足常规节拍，便于接入现场 PLC 与产线控制系统。</p>
+        <div class="case-card__metrics" style="margin-top:4px"><span class="tag">工业级</span><span class="tag">PLC 联动</span></div>
+      </article>
+
+      <article class="card reveal d2">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="2"/>
+            <path d="M9 9h6v6H9z"/>
+          </svg>
+        </div>
+        <h3 class="card__title">GPU 工控机</h3>
+        <p class="card__text">带独立 GPU 的工控主机，算力充足，适合高速产线与多相机、复杂缺陷类型场景。</p>
+        <div class="case-card__metrics" style="margin-top:4px"><span class="tag">高算力</span><span class="tag">多相机</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 屏五：适用场景 ========== -->
+<section class="section section--alt" id="scenarios">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">适用场景</span>
+      <h2 class="h2">已经在这些场景落地</h2>
+      <p class="lead">凡是需要人眼反复判定的外观与表面检测，都可以用视觉 AI 质检替代或辅助。</p>
+    </div>
+
+    <div class="grid grid--4">
+      <article class="card reveal">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="7" y="3" width="10" height="18" rx="2"/>
+            <path d="M10 18h4"/>
+          </svg>
+        </div>
+        <h3 class="card__title">3C 外观</h3>
+        <p class="card__text">外壳划痕、脏污、异色与装配缺件检测。</p>
+      </article>
+
+      <article class="card reveal d1">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="8"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </div>
+        <h3 class="card__title">精密件</h3>
+        <p class="card__text">尺寸、毛刺、崩边与表面缺陷的判定与剔除。</p>
+      </article>
+
+      <article class="card reveal d2">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </div>
+        <h3 class="card__title">纺织 / 薄膜</h3>
+        <p class="card__text">连续幅面的瑕疵在线检测与标记，替代人工目检。</p>
+      </article>
+
+      <article class="card reveal d3">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8h16v10H4z"/>
+            <path d="M8 8V6h8v2"/>
+          </svg>
+        </div>
+        <h3 class="card__title">食品包装</h3>
+        <p class="card__text">包装印刷、封口与内容物外观一致性检测。</p>
+      </article>
+    </div>
+
+    <div class="trustbar reveal d3" style="margin-top:44px">
+      <div class="trustbar__row">
+        <span class="trustbar__item">样本到产线一条链路</span>
+        <span class="trustbar__item">数据不出厂本地推理</span>
+        <span class="trustbar__item">支持打样测试验证</span>
+        <span class="trustbar__item">模型远程迭代升级</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 底部 CTA ========== -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div>
+        <h2 class="h3">提交样品与场景，先做一次打样测试</h2>
+        <p>提供你的样品、产线节拍与缺陷定义，我们按真实场景验证准确率、漏检率与过杀率，数据达标再放量。</p>
+      </div>
+      <div class="cta-band__actions">
+        <a class="btn btn--primary btn--lg" href="/contact/#form">提交样品 / 场景，申请打样测试<span class="arrow">→</span></a>
+        <a class="btn btn--ghost btn--lg" href="/contact/">预约方案演示</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div data-site-footer></div>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
