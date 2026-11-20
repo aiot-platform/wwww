@@ -80,7 +80,13 @@ jobs:
               chmod -R a+rX '${DEPLOY_DIR}'
               echo '已发布文件数：' \$(find '${DEPLOY_DIR}' -type f | wc -l)
               test -f '${DEPLOY_DIR}/index.html'
-              if command -v nginx >/dev/null 2>&1; then
-                nginx -t && nginx -s reload || echo '[WARN] nginx 重载失败，请检查配置'
+              if command -v caddy >/dev/null 2>&1; then
+                if grep -rqs '${DEPLOY_DIR}' /etc/caddy 2>/dev/null; then
+                  echo 'Caddy 已指向 ${DEPLOY_DIR}，静态文件更新即时生效'
+                else
+                  echo '[WARN] /etc/caddy 中未找到 ${DEPLOY_DIR}，请确认 Caddyfile 的 root 指向该目录'
+                fi
+              else
+                echo '[WARN] 服务器未找到 caddy 命令，请确认已安装'
               fi
             "
