@@ -51,7 +51,8 @@ jobs:
           ssh-keyscan -p "${DEPLOY_PORT:-22}" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
 
       - name: 打包站点文件
-        run: tar -czf site.tar.gz --exclude-vcs --exclude=./.github .
+        # 归档必须放在被扫描目录之外，否则 tar 会把自己写进去，报 "file changed as we read it"
+        run: tar -czf "$RUNNER_TEMP/site.tar.gz" --exclude-vcs --exclude=./.github .
 
       - name: 上传到服务器
         env:
@@ -61,7 +62,7 @@ jobs:
         run: |
           set -euo pipefail
           scp -i ~/.ssh/id_deploy -P "${DEPLOY_PORT:-22}" -o StrictHostKeyChecking=accept-new \
-            site.tar.gz "$DEPLOY_USER@$DEPLOY_HOST:/tmp/site.tar.gz"
+            "$RUNNER_TEMP/site.tar.gz" "$DEPLOY_USER@$DEPLOY_HOST:/tmp/site.tar.gz"
 
       - name: 在服务器上发布
         env:
