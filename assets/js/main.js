@@ -17,7 +17,7 @@
         label: '行业方案', href: null,
         children: [
           { label: '宠物方案', href: '/solutions/pet/' },
-          { label: '养殖业（牛 / 马）', href: '/solutions/livestock/' },
+          { label: '养殖畜牧业', href: '/solutions/livestock/' },
           { label: '工业 / 商业数采', href: '/solutions/industrial/' }
         ]
       },
@@ -42,7 +42,7 @@
         title: '行业方案',
         links: [
           { label: '宠物方案', href: '/solutions/pet/' },
-          { label: '养殖业（牛 / 马）', href: '/solutions/livestock/' },
+          { label: '养殖畜牧业', href: '/solutions/livestock/' },
           { label: '工业 / 商业数采', href: '/solutions/industrial/' }
         ]
       },
