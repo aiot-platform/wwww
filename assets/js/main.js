@@ -26,8 +26,7 @@
       { label: '资源中心', href: '/resources/' },
       { label: '关于我们', href: '/about/' }
     ],
-    cta: { label: '预约方案演示', href: '/contact/' },
-    secondaryCta: { label: '提交项目需求', href: '/contact/#form' },
+    cta: { label: '预约方案沟通', href: '/contact/' },
 
     footer: [
       {
@@ -125,11 +124,13 @@
 
     nav.appendChild(list);
     nav.id = 'site-nav';
-    container.appendChild(nav);
 
+    // CTA 放进 nav 内部：桌面端排在菜单右侧，移动端展开菜单时出现在菜单底部，
+    // 全站只保留这一个转化入口，两种设备都不需要额外找。
     var cta = el('a', 'btn btn--primary btn--sm header__cta', SITE.cta.label);
     cta.href = SITE.cta.href;
-    container.appendChild(cta);
+    nav.appendChild(cta);
+    container.appendChild(nav);
 
     var toggle = el('button', 'nav__toggle');
     toggle.type = 'button';
@@ -163,7 +164,7 @@
     brandCol.innerHTML =
       '<a class="logo" href="/"><span class="logo__mark">智</span>' +
       '<span>' + SITE.brand + '<span class="logo__sub">' + SITE.brandEn + '</span></span></a>' +
-      '<p>' + SITE.slogan + '。一套团队覆盖硬件、云、App 与 AI 质检，按行业交付，不从零试错。</p>' +
+      '<p>' + SITE.slogan + '。</p>' +
       '<div class="footer__contact">' +
       '<div><span>电话</span><br>' + SITE.contact.phone + '</div>' +
       '<div><span>邮箱</span><br>' + SITE.contact.email + '</div>' +
@@ -195,30 +196,11 @@
       '<div>© ' + year + ' ' + SITE.brand + ' · 保留所有权利' +
       (SITE.icp ? ' · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">' + SITE.icp + '</a>' : '') +
       '</div>' +
-      '<div><a href="/contact/">预约方案演示</a> · <a href="/resources/">资源下载</a> · <a href="/privacy/">隐私政策</a></div>';
+      '<div><a href="/privacy/">隐私政策</a></div>';
     container.appendChild(bottom);
 
     footer.appendChild(container);
     mount.replaceWith(footer);
-  }
-
-  /* ---------------- 固定转化条 ---------------- */
-  function buildStickyCta() {
-    var bar = el('div', 'sticky-cta');
-    bar.innerHTML =
-      '<div class="sticky-cta__inner">' +
-      '<div class="sticky-cta__text">项目想落地，<b>先沟通一次方案</b></div>' +
-      '<div class="sticky-cta__actions">' +
-      '<a class="btn btn--primary btn--sm" href="' + SITE.cta.href + '">' + SITE.cta.label + '</a>' +
-      '<a class="btn btn--ghost btn--sm" href="' + SITE.secondaryCta.href + '">' + SITE.secondaryCta.label + '</a>' +
-      '</div></div>';
-    document.body.appendChild(bar);
-
-    var onScroll = function () {
-      bar.classList.toggle('is-show', window.scrollY > 620);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
   }
 
   /* ---------------- 数据直接写入 ---------------- */
@@ -323,9 +305,8 @@
     if (headerMount) buildHeader(headerMount);
 
     var footerMount = document.querySelector('[data-site-footer]');
-    if (footerMount) buildFooter(footerMount);
+    if (footerMount)     buildFooter(footerMount);
 
-    buildStickyCta();
     initCounters();
     initFilters();
     initAccordion();
