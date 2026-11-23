@@ -127,7 +127,7 @@
     nav.id = 'site-nav';
     container.appendChild(nav);
 
-    var cta = el('a', 'btn btn--primary btn--sm header__cta', SITE.cta.label + '<span class="arrow">→</span>');
+    var cta = el('a', 'btn btn--primary btn--sm header__cta', SITE.cta.label);
     cta.href = SITE.cta.href;
     container.appendChild(cta);
 
@@ -207,9 +207,9 @@
     var bar = el('div', 'sticky-cta');
     bar.innerHTML =
       '<div class="sticky-cta__inner">' +
-      '<div class="sticky-cta__text">准备好把项目落地了？<b>先从一次方案沟通开始</b></div>' +
+      '<div class="sticky-cta__text">项目想落地，<b>先沟通一次方案</b></div>' +
       '<div class="sticky-cta__actions">' +
-      '<a class="btn btn--primary btn--sm" href="' + SITE.cta.href + '">' + SITE.cta.label + '<span class="arrow">→</span></a>' +
+      '<a class="btn btn--primary btn--sm" href="' + SITE.cta.href + '">' + SITE.cta.label + '</a>' +
       '<a class="btn btn--ghost btn--sm" href="' + SITE.secondaryCta.href + '">' + SITE.secondaryCta.label + '</a>' +
       '</div></div>';
     document.body.appendChild(bar);
@@ -221,51 +221,14 @@
     onScroll();
   }
 
-  /* ---------------- 数字滚动 ---------------- */
+  /* ---------------- 数据直接写入 ---------------- */
+  // 测量值应当直接可读，不做滚动动画。数字用等宽字体展示，读到的就是终值。
   function initCounters() {
-    var nodes = document.querySelectorAll('[data-count]');
-    if (!nodes.length) return;
-
-    var run = function (node) {
+    document.querySelectorAll('[data-count]').forEach(function (node) {
       var target = parseFloat(node.getAttribute('data-count'));
-      var decimals = (node.getAttribute('data-decimals') | 0);
-      var duration = 1100;
-      var start = null;
-
-      var tick = function (ts) {
-        if (start === null) start = ts;
-        var p = Math.min((ts - start) / duration, 1);
-        var eased = 1 - Math.pow(1 - p, 3);
-        var val = target * eased;
-        node.textContent = decimals ? val.toFixed(decimals) : Math.round(val).toLocaleString('en-US');
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    };
-
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
-      });
-    }, { threshold: .4 });
-    nodes.forEach(function (n) { io.observe(n); });
-  }
-
-  /* ---------------- 滚动显现 ---------------- */
-  function initReveal() {
-    var nodes = document.querySelectorAll('.reveal');
-    if (!nodes.length) return;
-
-    if (!('IntersectionObserver' in window)) {
-      nodes.forEach(function (n) { n.classList.add('is-visible'); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
-      });
-    }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
-    nodes.forEach(function (n) { io.observe(n); });
+      var decimals = node.getAttribute('data-decimals') | 0;
+      node.textContent = decimals ? target.toFixed(decimals) : Math.round(target).toLocaleString('en-US');
+    });
   }
 
   /* ---------------- 案例筛选 ---------------- */
@@ -363,7 +326,6 @@
     if (footerMount) buildFooter(footerMount);
 
     buildStickyCta();
-    initReveal();
     initCounters();
     initFilters();
     initAccordion();
