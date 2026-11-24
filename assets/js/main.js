@@ -114,7 +114,7 @@
         item.children.forEach(function (c) {
           var ca = el('a', null, c.label);
           ca.href = c.href;
-          if (normalize(c.href) === current) ca.style.color = 'var(--cyan)';
+          if (normalize(c.href) === current) ca.style.color = 'var(--signal)';
           dd.appendChild(ca);
         });
         li.appendChild(dd);
